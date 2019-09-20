@@ -1,0 +1,40 @@
+# Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?
+# For simplicity, assume char set is ASCII (if not, we need to increase the storage size. The rest of the logic would be the same).
+# NOTE: This is a great thing to point out to your interviewer!
+
+# ---- SOLUTION 1 -----
+
+
+def isUniqueChars2(string):
+
+    #Create a list
+    uchars = []
+
+    for c in string:
+        if c in uchars:
+            return False
+        else:
+            uchars.append(c)
+    return True
+
+
+if isUniqueChars2("Milaad"):
+    print("True")
+else:
+    print("False")
+
+
+# ---- SOLUTION 2 -----
+
+def unique(s):
+    return len(set(s)) == len(s)
+
+
+if unique("MiladM"):
+    print("TrueTrue")
+else:
+    print("FalseFalse")
+
+# set() function which eliminate duplicates Values
+print("Set: ", set([2, 4, 5, 6, 6, 7]))
+print("Set: ", set("MilMadD"))
