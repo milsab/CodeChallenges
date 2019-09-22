@@ -1,9 +1,6 @@
 package CodeSignal;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
@@ -46,6 +43,28 @@ public class Solution {
             }
         }
         return ans;
+    }
+
+    int matrixElementsSum(int[][] matrix) {
+        if(matrix == null || matrix.length == 0)
+            return 0;
+
+        HashSet<Integer> set = new HashSet<>();
+        int count = 0;
+
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                if(set.contains(j))
+                    continue;
+
+                if(matrix[i][j] == 0){
+                    set.add(j);
+                } else{
+                    count += matrix[i][j];
+                }
+            }
+        }
+        return count;
     }
 
     boolean isLucky(int n) {
