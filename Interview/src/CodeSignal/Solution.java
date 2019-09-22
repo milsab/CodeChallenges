@@ -70,22 +70,6 @@ public class Solution {
     }
 
     int[] sortByHeight(int[] a) {
-
-        int t;
-
-        for(int i=0; i<a.length; i++)
-            for(int j=i+1; j<a.length; j++)
-                if(a[i]>a[j] && a[i]!=-1 && a[j]!=-1) {
-
-                    t = a[i];
-                    a[i] = a[j];
-                    a[j] = t;
-                }
-
-        return a;
-    }
-
-    int[] sortByHeight(int[] a) {
         if(a.length == 0)
             return new int[]{};
 
