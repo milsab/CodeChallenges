@@ -46,4 +46,25 @@ public class Solution {
         }
         return ans;
     }
+
+    boolean isLucky(int n) {
+        if(n <10)
+            return false;
+
+        String str = String.valueOf(n);
+        int len = str.length();
+
+        String f = str.substring(0, len / 2);
+        String s = str.substring(len / 2);
+
+        return getSum(f) == getSum(s);
+    }
+
+    int getSum(String s){
+        int ans = 0;
+        for(char c : s.toCharArray()){
+            ans += (c - '0');
+        }
+        return ans;
+    }
 }
