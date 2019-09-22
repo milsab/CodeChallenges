@@ -3,6 +3,7 @@ package CodeSignal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Solution {
     public static void main(String[] args) {
@@ -67,4 +68,56 @@ public class Solution {
         }
         return ans;
     }
+
+    int[] sortByHeight(int[] a) {
+
+        int t;
+
+        for(int i=0; i<a.length; i++)
+            for(int j=i+1; j<a.length; j++)
+                if(a[i]>a[j] && a[i]!=-1 && a[j]!=-1) {
+
+                    t = a[i];
+                    a[i] = a[j];
+                    a[j] = t;
+                }
+
+        return a;
+    }
+
+    int[] sortByHeight(int[] a) {
+        if(a.length == 0)
+            return new int[]{};
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        for(int x : a){
+            if(x != -1)
+                minHeap.add(x);
+        }
+
+        int[] ans = new int[a.length];
+        for(int i = 0; i < a.length; i++){
+            if(a[i] == -1)
+                ans[i] = -1;
+            else{
+                ans[i] = minHeap.remove();
+            }
+        }
+        return ans;
+    }
+
+    int[] sortByHeight_2(int[] a) {
+        int t;
+        for(int i=0; i<a.length; i++)
+            for(int j=i+1; j<a.length; j++)
+                if(a[i]>a[j] && a[i]!=-1 && a[j]!=-1) {
+
+                    t = a[i];
+                    a[i] = a[j];
+                    a[j] = t;
+                }
+        return a;
+    }
+
 }
